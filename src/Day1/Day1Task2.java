@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Day1Task2 {
     public static void main(String[] args) throws FileNotFoundException {
-        Path path = Path.of("D://AoC/src/Day1/input_day1.txt");
+        Path path = Path.of("D://AoC/AoC_2021/src/Day1/input_day1.txt");
         File file = path.toFile();
         Scanner sc = new Scanner(file);
 

@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class Day3Task1 {
     public static void main(String[] args) throws FileNotFoundException {
-        Path path = Path.of("D://AoC/src/Day3/input_day3.txt");
+        Path path = Path.of("D://AoC/AoC_2021/src/Day3/input_day3.txt");
         File file = path.toFile();
         Scanner sc = new Scanner(file);
 
@@ -26,6 +26,8 @@ public class Day3Task1 {
         String epsilon = "";
 
         for (int i = 0; i < 12; i++) {
+            System.out.print(ones[i]);
+            System.out.println(zeros[i]);
             if (ones[i] > zeros[i]) {
                 gamma += '1';
                 epsilon += '0';

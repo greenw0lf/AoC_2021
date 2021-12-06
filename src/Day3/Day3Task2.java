@@ -1,16 +1,13 @@
 package Day3;
 
-import java.io.File;
+import Read.ReadingOfFiles;
 import java.io.FileNotFoundException;
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Day3Task2 {
     public static void main(String[] args) throws FileNotFoundException {
-        Path path = Path.of("D://AoC/AoC_2021/src/Day3/input_day3.txt");
-        File file = path.toFile();
-        Scanner sc = new Scanner(file);
+        Scanner sc = ReadingOfFiles.readFile(3);
 
         // We will count the amount of zero and one bits on each position with these variables
         int ones = 0;

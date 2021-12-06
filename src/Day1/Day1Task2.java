@@ -1,16 +1,13 @@
 package Day1;
 
-import java.io.File;
+import Read.ReadingOfFiles;
 import java.io.FileNotFoundException;
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Day1Task2 {
     public static void main(String[] args) throws FileNotFoundException {
-        Path path = Path.of("D://AoC/AoC_2021/src/Day1/input_day1.txt");
-        File file = path.toFile();
-        Scanner sc = new Scanner(file);
+        Scanner sc = ReadingOfFiles.readFile(1);
 
         ArrayList<Integer> input = new ArrayList<>();
         int res = 0;

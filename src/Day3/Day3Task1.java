@@ -1,15 +1,12 @@
 package Day3;
 
-import java.io.File;
+import Read.ReadingOfFiles;
 import java.io.FileNotFoundException;
-import java.nio.file.Path;
 import java.util.Scanner;
 
 public class Day3Task1 {
     public static void main(String[] args) throws FileNotFoundException {
-        Path path = Path.of("D://AoC/AoC_2021/src/Day3/input_day3.txt");
-        File file = path.toFile();
-        Scanner sc = new Scanner(file);
+        Scanner sc = ReadingOfFiles.readFile(3);
 
         // counters for ones and zeros for each bit position (input has 12 bits)
         int[] ones = new int[12];

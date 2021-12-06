@@ -1,15 +1,12 @@
 package Day5;
 
-import java.io.File;
+import Read.ReadingOfFiles;
 import java.io.FileNotFoundException;
-import java.nio.file.Path;
 import java.util.Scanner;
 
 public class Day5Task2 {
     public static void main(String []args) throws FileNotFoundException {
-        Path path = Path.of("D://AoC/AoC_2021/src/Day5/input_day5.txt");
-        File file = path.toFile();
-        Scanner sc = new Scanner(file);
+        Scanner sc = ReadingOfFiles.readFile(5);
         int[][] matrix = new int[1000][1000];
 
         for (int i = 0; i < 1000; i++)

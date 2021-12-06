@@ -1,15 +1,12 @@
 package Day2;
 
-import java.io.File;
+import Read.ReadingOfFiles;
 import java.io.FileNotFoundException;
-import java.nio.file.Path;
 import java.util.Scanner;
 
 public class Day2Task2 {
     public static void main(String[] args) throws FileNotFoundException {
-        Path path = Path.of("D://AoC/AoC_2021/src/Day2/input_day2.txt");
-        File file = path.toFile();
-        Scanner sc = new Scanner(file);
+        Scanner sc = ReadingOfFiles.readFile(2);
 
         // This will increase whenever the submarine moves forward
         int horiz = 0;

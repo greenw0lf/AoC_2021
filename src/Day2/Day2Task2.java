@@ -11,8 +11,11 @@ public class Day2Task2 {
         File file = path.toFile();
         Scanner sc = new Scanner(file);
 
+        // This will increase whenever the submarine moves forward
         int horiz = 0;
+        // This will increase/decrease every time depth changes (down/up)
         int aim = 0;
+        // This will increase/decrease whenever we move forward, based on value of aim at the time we move forward
         int depth = 0;
 
         while (sc.hasNext()) {

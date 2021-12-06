@@ -27,20 +27,26 @@ public class Day5Task2 {
             int x2 = Integer.parseInt(x2y2.split(",")[0]);
             int y2 = Integer.parseInt(x2y2.split(",")[1]);
 
+            // If x=y diagonal line, then the difference of x coordinates = difference of y coordinates
             if (x1 - x2 == y1 - y2)
                 if (x1 < x2)
                     for (int i = 0; i <= x2-x1; i++)
+                        // Increase incrementally for each coordinate since x=y diagonal line
                         matrix[x1+i][y1+i]++;
                 else
                     for (int i = 0; i <= x1-x2; i++)
                         matrix[x2+i][y2+i]++;
+            // If x=-y or vice versa, then diff of x = -diff of y (or vice versa, again)
             else if (x1 - x2 == -(y1 - y2))
                 if (x1 < x2)
                     for (int i = 0; i <= x2-x1; i++)
+                        // In this case, the x coordinate will increase, but then the y coordinate will decrease
+                        // This can also be done the other way around (x decreases, y increases)
                         matrix[x1+i][y1-i]++;
                 else
                     for (int i = 0; i <= x1-x2; i++)
                         matrix[x2+i][y2-i]++;
+            // The rest is the same as previous task
             else if (x1 == x2)
                 if (y1 < y2)
                     for (int i = y1; i <= y2; i++)

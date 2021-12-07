@@ -62,9 +62,9 @@ public class Day3Task2 {
         }
 
         // The arrays will have 1 element only in the end, therefore it will be the element in the first position
-        String o2_final = o2.get(0);
-        String co2_final = co2.get(0);
+        String o2Final = o2.get(0);
+        String co2Final = co2.get(0);
 
-        System.out.println(Integer.parseInt(o2_final, 2) * Integer.parseInt(co2_final, 2));
+        System.out.println(Integer.parseInt(o2Final, 2) * Integer.parseInt(co2Final, 2));
     }
 }

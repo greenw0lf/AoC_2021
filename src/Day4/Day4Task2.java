@@ -12,17 +12,17 @@ public class Day4Task2 {
         // This will be the bingo numbers that we will call out to mark on our tables
         ArrayList<Integer> calls = new ArrayList<>();
         // This will contain the table with the numbers that we will use later on to compute result
-        ArrayList<ArrayList<Integer>> lookup_tables = new ArrayList<>();
+        ArrayList<ArrayList<Integer>> lookupTables = new ArrayList<>();
         // This will mark the numbers up and determine when bingo is reached
-        ArrayList<int[][]> markup_tables = new ArrayList<>();
+        ArrayList<int[][]> markupTables = new ArrayList<>();
 
         // We get the entire list of calls since Java is being annoying and cannot separate them by ,
         String call = sc.next();
 
         // Separate the number calls and put them into an array of strings
-        String[] calls_temp = call.split(",");
+        String[] callsTemp = call.split(",");
         // Convert from string to number
-        for (String s : calls_temp) calls.add(Integer.parseInt(s));
+        for (String s : callsTemp) calls.add(Integer.parseInt(s));
 
         while (sc.hasNext()) {
             ArrayList<Integer> table = new ArrayList<>();
@@ -30,7 +30,7 @@ public class Day4Task2 {
             for (int i = 0; i < 25; i++)
                 table.add(sc.nextInt());
             // Add the newly created lookup table to the list of lookup tables
-            lookup_tables.add(table);
+            lookupTables.add(table);
             // Have to make the markup table every time for each of the lookup tables because I cannot assign the same
             // matrix to all of them due to shallow copying, which then ruins all the tables when they should be separate
             int[][] zeros = new int[5][5];
@@ -38,42 +38,42 @@ public class Day4Task2 {
                 for (int j = 0; j < 5; j++)
                     zeros[i][j] = 0;
             // Finally, add the table of zeros to the list of markup tables
-            markup_tables.add(zeros);
+            markupTables.add(zeros);
         }
 
         // Index of the calls
         int ind = 0;
         int res = 0;
         // We keep going until there is 1 table left, which is the losing table we are looking for
-        while (lookup_tables.size() > 1) {
+        while (lookupTables.size() > 1) {
             // Go through all the lookup tables
-            for (int i = 0; i < lookup_tables.size(); i++) {
+            for (int i = 0; i < lookupTables.size(); i++) {
                 // Find index of the number in the lookup table
-                int lol = lookup_tables.get(i).indexOf(calls.get(ind));
+                int lol = lookupTables.get(i).indexOf(calls.get(ind));
                 // If number exists in the table
                 if (lol > -1) {
                     // Converting from 1D lookup table to 2D markup table
                     int x = lol / 5;
                     int y = lol % 5;
                     // Mark the number
-                    markup_tables.get(i)[x][y] = 1;
+                    markupTables.get(i)[x][y] = 1;
                     // Check if bingo has been hit
                     for (int j = 0; j < 5; j++) {
                         int xcount = 0;
                         int ycount = 0;
                         for (int k = 0; k < 5; k++) {
                             // Check if row is all marked
-                            if (markup_tables.get(i)[j][k] == 1)
+                            if (markupTables.get(i)[j][k] == 1)
                                 xcount++;
                             // Check if column is all marked
-                            if (markup_tables.get(i)[k][j] == 1)
+                            if (markupTables.get(i)[k][j] == 1)
                                 ycount++;
                         }
                         // If one row/column has all 5 elements marked
                         if (xcount == 5 || ycount == 5) {
                             // We remove the table since we are not interested in it anymore
-                            lookup_tables.remove(i);
-                            markup_tables.remove(i);
+                            lookupTables.remove(i);
+                            markupTables.remove(i);
                             // Decrement index in order to not skip a table
                             i--;
                             break;
@@ -87,23 +87,23 @@ public class Day4Task2 {
 
         // Work on the last bingo table until we hit bingo
         while (res == 0) {
-            int lol = lookup_tables.get(0).indexOf(calls.get(ind));
+            int lol = lookupTables.get(0).indexOf(calls.get(ind));
             if (lol > -1) {
                 // Converting from 1D lookup table to 2D markup table
                 int x = lol / 5;
                 int y = lol % 5;
                 // Mark the number
-                markup_tables.get(0)[x][y] = 1;
+                markupTables.get(0)[x][y] = 1;
                 // Check if bingo has been hit
                 for (int j = 0; j < 5; j++) {
                     int xcount = 0;
                     int ycount = 0;
                     for (int k = 0; k < 5; k++) {
                         // Check if row is all marked
-                        if (markup_tables.get(0)[j][k] == 1)
+                        if (markupTables.get(0)[j][k] == 1)
                             xcount++;
                         // Check if column is all marked
-                        if (markup_tables.get(0)[k][j] == 1)
+                        if (markupTables.get(0)[k][j] == 1)
                             ycount++;
                     }
                     // If one row/column has all 5 elements marked
@@ -112,9 +112,9 @@ public class Day4Task2 {
                         for (int m = 0; m < 5; m++)
                             for (int n = 0; n < 5; n++)
                                 // If element is unmarked
-                                if (markup_tables.get(0)[m][n] == 0)
+                                if (markupTables.get(0)[m][n] == 0)
                                     // Add it to the result
-                                    res += lookup_tables.get(0).get(5 * m + n);
+                                    res += lookupTables.get(0).get(5 * m + n);
                         // Finally, multiply the called-out number with the sum of unmarked numbers
                         res *= calls.get(ind);
                         break;

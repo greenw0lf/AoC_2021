@@ -15,10 +15,10 @@ public class Day3Task1 {
         while(sc.hasNext()) {
             String temp = sc.next();
             // Make it into char array for easier access of each bit position
-            char[] temp_char = temp.toCharArray();
+            char[] tempChar = temp.toCharArray();
             for (int i = 0; i < 12; i++)
                 // Increase the corresponding position in the ones array if bit is 1
-                if (temp_char[i] == '1')
+                if (tempChar[i] == '1')
                     ones[i]++;
                 // Otherwise, increase the corresponding bit position in the zeros array
                 else zeros[i]++;

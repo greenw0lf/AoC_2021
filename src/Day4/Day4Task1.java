@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class Day4Task1 {
     public static void main(String[] args) throws FileNotFoundException {
-        Scanner sc = ReadingOfFiles.readFile(6);
+        Scanner sc = ReadingOfFiles.readFile(4);
 
         // This will be the bingo numbers that we will call out to mark on our tables
         ArrayList<Integer> calls = new ArrayList<>();

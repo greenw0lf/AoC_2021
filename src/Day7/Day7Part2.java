@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
-public class Day7Task2 {
+public class Day7Part2 {
     public static void main(String[] args) throws FileNotFoundException {
         Scanner sc = ReadingOfFiles.readFile(7);
 

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Scanner;
 
-public class Day8Task2 {
+public class Day8Part2 {
     // Copied first 2 methods here from:
     // https://stackoverflow.com/questions/27668213/check-if-a-string-has-all-the-characters-of-another-string
     public static HashSet<Character> stringToCharacterSet(String s) {

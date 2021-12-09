@@ -4,7 +4,7 @@ import Read.ReadingOfFiles;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class Day2Task1 {
+public class Day2Part1 {
     public static void main(String[] args) throws FileNotFoundException {
         Scanner sc = ReadingOfFiles.readFile(2);
 
